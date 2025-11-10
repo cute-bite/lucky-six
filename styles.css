@@ -114,3 +114,35 @@ input[type=number], select {
 .ball.red    { background: #EF5350; border-color: #E14B48; color:#fff; }   /* 21-30 */
 .ball.gray   { background: #CFD8DC; border-color: #B0BEC5; }   /* 31-40 */
 .ball.green  { background: #81C784; border-color: #72B575; }   /* 41-45 */
+
+
+/* 한 줄 정렬을 위한 세트 */
+.set { display:flex; gap:8px; align-items:center; flex-wrap:nowrap; }
+
+/* current 영역은 세트를 세로로 쌓기 */
+#current.stack { display:grid; gap:12px; }
+
+/* 저장한 조합(이미 보기 좋음) 유지 */
+.stack { display:grid; gap:12px; }
+
+/* 번호 빈도 요약 레이아웃 */
+#freq-summary { 
+  display:grid; 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap:12px; 
+}
+.freq-card {
+  border:1px dashed var(--border);
+  border-radius:12px;
+  padding:10px;
+}
+.freq-title { font-size:13px; color:var(--muted); margin-bottom:6px; }
+.inline { display:flex; gap:8px; align-items:center; flex-wrap:nowrap; }
+
+/* (이미 적용된) 구간 색상 */
+.ball.yellow { background:#FFD54D; border-color:#F6C445; }
+.ball.blue   { background:#64B5F6; border-color:#5AA7E4; color:#fff; }
+.ball.red    { background:#EF5350; border-color:#E14B48; color:#fff; }
+.ball.gray   { background:#CFD8DC; border-color:#B0BEC5; }
+.ball.green  { background:#81C784; border-color:#72B575; }
+
