@@ -106,21 +106,29 @@ function summarizeFreq(freq) {
 
   // Render freq summary
   const blocks = [];
-  const makeBlock = (title, items) => {
-    const s = document.createElement('div');
-    s.className = 'set';
-    const label = document.createElement('span');
-    label.className = 'hint';
-    label.textContent = title;
-    s.appendChild(label);
-    items.forEach(({num,f}) => {
-      const b = document.createElement('span');
-      b.className = 'ball ' + ballClass(num);
-      b.textContent = num;
-      s.appendChild(b);
-    });
-    blocks.push(s);
-  };
+  const makeBlock = (titleTxt, items) => {
+  const card = document.createElement('div');
+  card.className = 'freq-card';
+
+  const title = document.createElement('div');
+  title.className = 'freq-title';
+  title.textContent = titleTxt;
+
+  const row = document.createElement('div');
+  row.className = 'inline';
+
+  items.forEach(({num}) => {
+    const b = document.createElement('span');
+    b.className = 'ball ' + ballClass(num);
+    b.textContent = num;
+    row.appendChild(b);
+  });
+
+  card.appendChild(title);
+  card.appendChild(row);
+  freqBox.appendChild(card);
+};
+
   makeBlock('자주 나온 번호 TOP5', summary.top);
   makeBlock('덜 나온 번호 BOTTOM5', summary.bottom);
   blocks.forEach(b => freqBox.appendChild(b));
